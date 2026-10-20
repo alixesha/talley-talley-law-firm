@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FamilyLawRouteImport } from './routes/family-law'
+import { Route as PracticeAreasRouteImport } from './routes/practice-areas'
+import { Route as ProbateRouteImport } from './routes/probate'
+import { Route as RealEstateLawRouteImport } from './routes/real-estate-law'
+import { Route as WillsEstatePlanningRouteImport } from './routes/wills-estate-planning'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FamilyLawRoute = FamilyLawRouteImport.update({
+  id: '/family-law',
+  path: '/family-law',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticeAreasRoute = PracticeAreasRouteImport.update({
+  id: '/practice-areas',
+  path: '/practice-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProbateRoute = ProbateRouteImport.update({
+  id: '/probate',
+  path: '/probate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealEstateLawRoute = RealEstateLawRouteImport.update({
+  id: '/real-estate-law',
+  path: '/real-estate-law',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WillsEstatePlanningRoute = WillsEstatePlanningRouteImport.update({
+  id: '/wills-estate-planning',
+  path: '/wills-estate-planning',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/family-law': typeof FamilyLawRoute
+  '/practice-areas': typeof PracticeAreasRoute
+  '/probate': typeof ProbateRoute
+  '/real-estate-law': typeof RealEstateLawRoute
+  '/wills-estate-planning': typeof WillsEstatePlanningRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/family-law': typeof FamilyLawRoute
+  '/practice-areas': typeof PracticeAreasRoute
+  '/probate': typeof ProbateRoute
+  '/real-estate-law': typeof RealEstateLawRoute
+  '/wills-estate-planning': typeof WillsEstatePlanningRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/family-law': typeof FamilyLawRoute
+  '/practice-areas': typeof PracticeAreasRoute
+  '/probate': typeof ProbateRoute
+  '/real-estate-law': typeof RealEstateLawRoute
+  '/wills-estate-planning': typeof WillsEstatePlanningRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/family-law'
+    | '/practice-areas'
+    | '/probate'
+    | '/real-estate-law'
+    | '/wills-estate-planning'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/family-law'
+    | '/practice-areas'
+    | '/probate'
+    | '/real-estate-law'
+    | '/wills-estate-planning'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/family-law'
+    | '/practice-areas'
+    | '/probate'
+    | '/real-estate-law'
+    | '/wills-estate-planning'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  FamilyLawRoute: typeof FamilyLawRoute
+  PracticeAreasRoute: typeof PracticeAreasRoute
+  ProbateRoute: typeof ProbateRoute
+  RealEstateLawRoute: typeof RealEstateLawRoute
+  WillsEstatePlanningRoute: typeof WillsEstatePlanningRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/family-law': {
+      id: '/family-law'
+      path: '/family-law'
+      fullPath: '/family-law'
+      preLoaderRoute: typeof FamilyLawRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practice-areas': {
+      id: '/practice-areas'
+      path: '/practice-areas'
+      fullPath: '/practice-areas'
+      preLoaderRoute: typeof PracticeAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/probate': {
+      id: '/probate'
+      path: '/probate'
+      fullPath: '/probate'
+      preLoaderRoute: typeof ProbateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/real-estate-law': {
+      id: '/real-estate-law'
+      path: '/real-estate-law'
+      fullPath: '/real-estate-law'
+      preLoaderRoute: typeof RealEstateLawRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wills-estate-planning': {
+      id: '/wills-estate-planning'
+      path: '/wills-estate-planning'
+      fullPath: '/wills-estate-planning'
+      preLoaderRoute: typeof WillsEstatePlanningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  FamilyLawRoute: FamilyLawRoute,
+  PracticeAreasRoute: PracticeAreasRoute,
+  ProbateRoute: ProbateRoute,
+  RealEstateLawRoute: RealEstateLawRoute,
+  WillsEstatePlanningRoute: WillsEstatePlanningRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
