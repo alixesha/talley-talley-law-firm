@@ -4,24 +4,25 @@ import hero from "@/assets/hero-courthouse.jpg";
 import land from "@/assets/land.jpg";
 import docs from "@/assets/documents.jpg";
 import office from "@/assets/office.jpg";
+import court from "@/assets/criminal-defense.jpg";
 import { ClosingCTA, PageHero, Reveal, SectionHeading, seo } from "@/components/site";
 import { PRACTICES } from "@/lib/firm";
 
 export const Route = createFileRoute("/practice-areas")({
   head: () => seo(
     "Practice Areas | Talley & Talley Attorneys, Hobart, OK",
-    "Real estate law, probate and estate administration, family law, and wills and estate planning in Hobart and Southwest Oklahoma.",
+    "Real estate law, probate and estate administration, family law, wills and estate planning, and criminal defense in Hobart and Southwest Oklahoma.",
     "/practice-areas",
   ),
   component: Practices,
 });
 
-const IMAGES = [land, office, hero, docs];
+const IMAGES = [land, office, hero, docs, court];
 
 function Practices() {
   return (
     <>
-      <PageHero image={hero} align="center" eyebrow="Practice Areas" title="Counsel across a general practice." intro="Four core areas of law, handled personally by the firm for clients throughout Southwest Oklahoma." />
+      <PageHero image={hero} align="center" eyebrow="Practice Areas" title="Counsel across a general practice." intro="Five core areas of law, handled personally by the firm for clients throughout Southwest Oklahoma." />
       <section className="py-28">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading eyebrow="What We Handle" title="Choose an area to learn more." intro="If your matter doesn't fit neatly into one category, call the office. Many client needs overlap, and a general practice is suited to that." />
