@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Landmark, Handshake, MapPin, ScrollText } from "lucide-react";
+import court from "@/assets/criminal-defense.jpg";
 import hero from "@/assets/hero-courthouse.jpg";
 import office from "@/assets/office.jpg";
 import { CallButton, ClosingCTA, Reveal, SectionHeading, seo } from "@/components/site";
@@ -28,14 +29,14 @@ function Home() {
         <img src={hero} alt="Historic Oklahoma county courthouse at sunset" width={1920} height={1088} className="ken-burns absolute inset-0 h-full w-full object-cover" />
         <div className="hero-overlay absolute inset-0" />
         <div className="relative mx-auto w-full max-w-7xl px-6 pb-24 pt-44">
-          <p className="eyebrow hero-in">Attorneys at Law · Hobart, Oklahoma · Since {FIRM.since}</p>
-          <h1 className="hero-in mt-6 max-w-4xl text-5xl leading-[1.02] text-on-navy sm:text-6xl md:text-8xl" style={{ animationDelay: "250ms" }}>
+          <p className="eyebrow hero-in-right">Attorneys at Law · Hobart, Oklahoma · Since {FIRM.since}</p>
+          <h1 className="hero-in-right mt-6 max-w-4xl text-5xl leading-[1.02] text-on-navy sm:text-6xl md:text-8xl" style={{ animationDelay: "250ms" }}>
             Steady counsel for <em className="text-gold-soft">life&rsquo;s</em> important matters.
           </h1>
-          <p className="hero-in mt-8 max-w-xl text-lg leading-relaxed text-on-navy-muted md:text-xl" style={{ animationDelay: "500ms" }}>
+          <p className="hero-in-right mt-8 max-w-xl text-lg leading-relaxed text-on-navy-muted md:text-xl" style={{ animationDelay: "500ms" }}>
             Attorney {FIRM.attorney} and Talley &amp; Talley have served families, landowners, and individuals across Southwest Oklahoma for nearly fifty years.
           </p>
-          <div className="hero-in mt-11 flex flex-col gap-4 sm:flex-row" style={{ animationDelay: "750ms" }}>
+          <div className="hero-in-right mt-11 flex flex-col gap-4 sm:flex-row" style={{ animationDelay: "750ms" }}>
             <CallButton />
             <Link to="/practice-areas" className="inline-flex items-center justify-center gap-2 border border-on-navy/30 px-7 py-4 text-sm uppercase tracking-[0.18em] text-on-navy transition-all duration-500 hover:border-gold hover:text-gold-soft">
               Practice Areas <ArrowRight className="h-4 w-4" />
@@ -51,8 +52,8 @@ function Home() {
             <Reveal delay={200}><Link to="/practice-areas" className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-navy">All practice areas <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5" /></Link></Reveal>
           </div>
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {PRACTICES.map((p, i) => (
-              <Reveal key={p.to} delay={i * 160}>
+            {PRACTICES.slice(0, 4).map((p, i) => (
+              <Reveal key={p.to} direction="right" delay={i * 160}>
                 <Link to={p.to} className="group relative flex h-full flex-col border border-border bg-card p-8 transition-all duration-700 hover:-translate-y-1 hover:border-gold hover:shadow-card">
                   <span className="font-serif text-5xl text-gold/70">0{i + 1}</span>
                   <h3 className="mt-8 text-2xl leading-snug text-navy">{p.title}</h3>
@@ -62,6 +63,19 @@ function Home() {
               </Reveal>
             ))}
           </div>
+          <Reveal direction="left" delay={200} className="mt-6">
+            <Link to={PRACTICES[4].to} className="group grid overflow-hidden bg-navy-deep shadow-card md:grid-cols-2">
+              <div className="overflow-hidden">
+                <img src={court} alt="" width={1600} height={1072} loading="lazy" className="h-64 w-full object-cover transition-transform duration-[2000ms] group-hover:scale-105 md:h-full" />
+              </div>
+              <div className="flex flex-col justify-center p-10 md:p-14">
+                <span className="font-serif text-5xl text-gold/70">05</span>
+                <h3 className="mt-6 font-serif text-3xl leading-snug text-on-navy md:text-4xl">{PRACTICES[4].title}</h3>
+                <p className="mt-4 max-w-md leading-relaxed text-on-navy-muted">{PRACTICES[4].blurb}</p>
+                <span className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft">Learn more <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5" /></span>
+              </div>
+            </Link>
+          </Reveal>
         </div>
       </section>
 
