@@ -3,9 +3,10 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Menu, Phone, X, MapPin, Clock, ArrowRight } from "lucide-react";
 import { FIRM, PRACTICES } from "@/lib/firm";
 
-export function Reveal({ children, delay = 0, className = "", as: Tag = "div" }: { children: ReactNode; delay?: number; className?: string; as?: "div" | "section" | "li" }) {
+export function Reveal({ children, delay = 0, className = "", direction = "up", as: Tag = "div" }: { children: ReactNode; delay?: number; className?: string; direction?: "up" | "left" | "right"; as?: "div" | "section" | "li" }) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
+  const utility = direction === "left" ? "reveal-left" : direction === "right" ? "reveal-right" : "reveal";
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -17,7 +18,7 @@ export function Reveal({ children, delay = 0, className = "", as: Tag = "div" }:
   }, []);
   return (
     // @ts-expect-error polymorphic ref
-    <Tag ref={ref} style={{ transitionDelay: `${delay}ms` }} className={`reveal ${visible ? "is-visible" : ""} ${className}`}>
+    <Tag ref={ref} style={{ transitionDelay: `${delay}ms` }} className={`${utility} ${visible ? "is-visible" : ""} ${className}`}>
       {children}
     </Tag>
   );
@@ -143,9 +144,9 @@ export function PageHero({ image, eyebrow, title, intro, align = "left" }: { ima
       <img src={image} alt="" width={1600} height={1072} className="ken-burns absolute inset-0 h-full w-full object-cover" />
       <div className="hero-overlay absolute inset-0" />
       <div className={`relative mx-auto w-full max-w-7xl px-6 pb-20 pt-48 ${align === "center" ? "text-center" : ""}`}>
-        <p className="eyebrow hero-in">{eyebrow}</p>
-        <h1 className={`hero-in mt-5 max-w-3xl text-5xl leading-[1.05] text-on-navy md:text-7xl ${align === "center" ? "mx-auto" : ""}`} style={{ animationDelay: "200ms" }}>{title}</h1>
-        <p className={`hero-in mt-7 max-w-xl text-lg leading-relaxed text-on-navy-muted ${align === "center" ? "mx-auto" : ""}`} style={{ animationDelay: "450ms" }}>{intro}</p>
+        <p className="eyebrow hero-in-right">{eyebrow}</p>
+        <h1 className={`hero-in-right mt-5 max-w-3xl text-5xl leading-[1.05] text-on-navy md:text-7xl ${align === "center" ? "mx-auto" : ""}`} style={{ animationDelay: "200ms" }}>{title}</h1>
+        <p className={`hero-in-right mt-7 max-w-xl text-lg leading-relaxed text-on-navy-muted ${align === "center" ? "mx-auto" : ""}`} style={{ animationDelay: "450ms" }}>{intro}</p>
       </div>
     </section>
   );
