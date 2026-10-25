@@ -29,12 +29,12 @@ function Practices() {
           <div className="mt-20 space-y-24">
             {PRACTICES.map((p, i) => (
               <div key={p.to} className={`grid items-center gap-12 lg:grid-cols-2 ${i % 2 ? "lg:[&>*:first-child]:order-2" : ""}`}>
-                <Reveal className="overflow-hidden">
+                <Reveal direction="left" className="overflow-hidden">
                   <Link to={p.to} className="group block overflow-hidden">
                     <img src={IMAGES[i]} alt="" width={1600} height={1072} loading="lazy" className="aspect-[16/10] w-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" />
                   </Link>
                 </Reveal>
-                <Reveal delay={200}>
+                <Reveal direction="right" delay={200}>
                   <span className="font-serif text-6xl text-gold/60">0{i + 1}</span>
                   <h2 className="mt-4 text-4xl text-navy md:text-5xl">{p.title}</h2>
                   <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{p.blurb}</p>

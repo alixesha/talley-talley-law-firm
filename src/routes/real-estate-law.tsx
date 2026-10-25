@@ -28,14 +28,14 @@ function RealEstate() {
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12">
           <div className="lg:col-span-5 lg:sticky lg:top-40 lg:self-start">
             <SectionHeading eyebrow="Overview" title="Careful work on matters that last for generations." />
-            <Reveal delay={200}>
+            <Reveal direction="right" delay={200}>
               <p className="mt-8 text-lg leading-relaxed text-muted-foreground">Whether you are purchasing a home in Hobart, transferring farmland to the next generation, or sorting out who owns an inherited tract, real estate matters reward precision. A small error in a deed can create problems years later.</p>
               <div className="mt-10"><CallButton variant="navy" /></div>
             </Reveal>
           </div>
           <div className="grid gap-px self-start bg-border sm:grid-cols-2 lg:col-span-7">
             {MATTERS.map(([t, d], i) => (
-              <Reveal key={t} delay={(i % 2) * 150} className="bg-background p-9 transition-colors duration-700 hover:bg-card">
+              <Reveal key={t} direction="right" delay={(i % 2) * 150} className="bg-background p-9 transition-colors duration-700 hover:bg-card">
                 <span className="gold-rule" />
                 <h3 className="mt-6 text-2xl text-navy">{t}</h3>
                 <p className="mt-3 leading-relaxed text-muted-foreground">{d}</p>
@@ -45,7 +45,7 @@ function RealEstate() {
         </div>
       </section>
       <section className="bg-navy py-24">
-        <Reveal className="mx-auto max-w-4xl px-6 text-center">
+        <Reveal direction="right" className="mx-auto max-w-4xl px-6 text-center">
           <p className="font-serif text-3xl italic leading-snug text-on-navy md:text-4xl">&ldquo;Before you sign, it is worth having an attorney read what you are agreeing to.&rdquo;</p>
           <p className="eyebrow mt-8">A sensible rule for any real estate transaction</p>
         </Reveal>
