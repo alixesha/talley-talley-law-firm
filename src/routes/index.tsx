@@ -81,7 +81,7 @@ function Home() {
 
       <section className="bg-secondary py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
-          <Reveal className="relative">
+          <Reveal direction="left" className="relative">
             <img src={office} alt="Traditional law office with leather-bound law books" width={1600} height={1072} loading="lazy" className="aspect-[4/5] w-full object-cover shadow-card" />
             <div className="absolute -bottom-8 -right-4 hidden bg-navy px-10 py-8 md:block">
               <p className="font-serif text-6xl text-gold">{new Date().getFullYear() - FIRM.since}</p>
@@ -90,8 +90,8 @@ function Home() {
           </Reveal>
           <div>
             <SectionHeading eyebrow="The Firm" title={<>A Hobart law practice built on <em>personal attention</em>.</>} />
-            <Reveal delay={200}>
-              <p className="mt-8 text-lg leading-relaxed text-muted-foreground">Talley &amp; Talley is a general law practice founded in {FIRM.since}. From our office on East 4th Street, we help clients with real estate, probate, domestic matters, and the planning of their estates.</p>
+            <Reveal direction="right" delay={200}>
+              <p className="mt-8 text-lg leading-relaxed text-muted-foreground">Talley &amp; Talley is a general law practice founded in {FIRM.since}. From our office on East 4th Street, we help clients with real estate, probate, domestic matters, estate planning, and criminal defense.</p>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">Our approach is straightforward: listen carefully, explain the law plainly, and see each matter through with the same attorney from start to finish.</p>
               <Link to="/about" className="group mt-10 inline-flex items-center gap-2 border-b border-gold pb-1 text-sm font-semibold uppercase tracking-[0.2em] text-navy">About the firm <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5" /></Link>
             </Reveal>
@@ -104,7 +104,7 @@ function Home() {
           <SectionHeading center eyebrow="Why Talley & Talley" title="Experience you can sit across the table from." />
           <div className="mt-20 grid gap-x-12 gap-y-16 md:grid-cols-2 lg:grid-cols-4">
             {REASONS.map((r, i) => (
-              <Reveal key={r.title} delay={i * 180} className="border-t border-gold/60 pt-8">
+              <Reveal key={r.title} direction="right" delay={i * 180} className="border-t border-gold/60 pt-8">
                 <r.icon className="h-7 w-7 text-gold" strokeWidth={1.25} />
                 <h3 className="mt-6 text-2xl text-navy">{r.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted-foreground">{r.text}</p>
