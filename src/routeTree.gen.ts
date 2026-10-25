@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CriminalDefenseLawRouteImport } from './routes/criminal-defense-law'
 import { Route as FamilyLawRouteImport } from './routes/family-law'
 import { Route as PracticeAreasRouteImport } from './routes/practice-areas'
 import { Route as ProbateRouteImport } from './routes/probate'
@@ -31,6 +32,11 @@ const AboutRoute = AboutRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CriminalDefenseLawRoute = CriminalDefenseLawRouteImport.update({
+  id: '/criminal-defense-law',
+  path: '/criminal-defense-law',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FamilyLawRoute = FamilyLawRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/criminal-defense-law': typeof CriminalDefenseLawRoute
   '/family-law': typeof FamilyLawRoute
   '/practice-areas': typeof PracticeAreasRoute
   '/probate': typeof ProbateRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/criminal-defense-law': typeof CriminalDefenseLawRoute
   '/family-law': typeof FamilyLawRoute
   '/practice-areas': typeof PracticeAreasRoute
   '/probate': typeof ProbateRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/criminal-defense-law': typeof CriminalDefenseLawRoute
   '/family-law': typeof FamilyLawRoute
   '/practice-areas': typeof PracticeAreasRoute
   '/probate': typeof ProbateRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/criminal-defense-law'
     | '/family-law'
     | '/practice-areas'
     | '/probate'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/criminal-defense-law'
     | '/family-law'
     | '/practice-areas'
     | '/probate'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/criminal-defense-law'
     | '/family-law'
     | '/practice-areas'
     | '/probate'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  CriminalDefenseLawRoute: typeof CriminalDefenseLawRoute
   FamilyLawRoute: typeof FamilyLawRoute
   PracticeAreasRoute: typeof PracticeAreasRoute
   ProbateRoute: typeof ProbateRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/criminal-defense-law': {
+      id: '/criminal-defense-law'
+      path: '/criminal-defense-law'
+      fullPath: '/criminal-defense-law'
+      preLoaderRoute: typeof CriminalDefenseLawRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/family-law': {
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  CriminalDefenseLawRoute: CriminalDefenseLawRoute,
   FamilyLawRoute: FamilyLawRoute,
   PracticeAreasRoute: PracticeAreasRoute,
   ProbateRoute: ProbateRoute,
