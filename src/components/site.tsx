@@ -154,7 +154,7 @@ export function PageHero({ image, eyebrow, title, intro, align = "left" }: { ima
 
 export function SectionHeading({ eyebrow, title, intro, center }: { eyebrow: string; title: ReactNode; intro?: string; center?: boolean }) {
   return (
-    <Reveal className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
+    <Reveal direction="right" className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       <p className="eyebrow">{eyebrow}</p>
       <h2 className="mt-4 text-4xl leading-tight text-navy md:text-5xl">{title}</h2>
       <span className={`gold-rule mt-6 ${center ? "mx-auto" : ""}`} />
@@ -167,7 +167,7 @@ export function ClosingCTA({ title, text }: { title: string; text: string }) {
   return (
     <section className="relative overflow-hidden bg-navy py-28">
       <div className="mx-auto max-w-4xl px-6 text-center">
-        <Reveal>
+        <Reveal direction="right">
           <p className="eyebrow">Speak With the Firm</p>
           <h2 className="mt-5 text-4xl leading-tight text-on-navy md:text-6xl">{title}</h2>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-on-navy-muted">{text}</p>
@@ -188,9 +188,9 @@ export function RelatedPractices({ current }: { current: string }) {
     <section className="bg-secondary py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading eyebrow="Related Services" title="Other ways we can help" />
-        <div className="mt-12 grid gap-px bg-border md:grid-cols-3">
+        <div className="mt-12 grid gap-px bg-border md:grid-cols-2">
           {PRACTICES.filter((p) => p.to !== current).map((p, i) => (
-            <Reveal key={p.to} delay={i * 150}>
+            <Reveal key={p.to} direction="right" delay={(i % 2) * 150}>
               <Link to={p.to} className="group flex h-full flex-col bg-background p-9 transition-colors duration-700 hover:bg-card">
                 <h3 className="text-2xl text-navy">{p.title}</h3>
                 <p className="mt-3 flex-1 text-muted-foreground">{p.blurb}</p>
