@@ -6,9 +6,9 @@ export const FIRM = {
   street: "200 E 4th St",
   poBox: "P.O. Box 841",
   city: "Hobart, Oklahoma 73651",
-  hours: "Monday – Thursday, 8:00 AM – 5:00 PM · Friday, 8:00 AM – 12:00 PM · Weekends by appointment",
+  hours: "Monday – Thursday, 8:00 AM – 4:00 PM · Friday, 8:00 AM – 12:00 PM · Weekends by appointment",
   hoursLines: [
-    ["Monday – Thursday", "8:00 AM – 5:00 PM"],
+    ["Monday – Thursday", "8:00 AM – 4:00 PM"],
     ["Friday", "8:00 AM – 12:00 PM"],
     ["Saturday & Sunday", "By appointment only"],
   ] as const,
